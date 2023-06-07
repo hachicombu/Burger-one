@@ -1,2 +1,63 @@
 @use "../globals" as *;
 @use "../parts/common" as *;
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url(../images/kv-img.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include mq(md) {
+    background-position: top top;
+  }
+
+  &::after {
+    content: url(../images/logo.svg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    transform-origin: center;
+
+    @include mq(md) {
+      top: 3%;
+      left: 3%;
+      transform: none;
+    }
+  }
+}
+
+.concept {
+  @extend .content-width;
+  margin-top: 50px;
+
+  &__inner {
+    @extend .flex;
+    @extend .flex-reverse;
+    // gap: 4em;
+  }
+
+  &__img {
+    width: 100%;
+    & img {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    @include mq(md) {
+      width: 50%;
+    }
+  }
+  &__texts {
+  }
+  &__sub-title {
+  }
+
+  &__title {
+  }
+  &__text {
+  }
+}
