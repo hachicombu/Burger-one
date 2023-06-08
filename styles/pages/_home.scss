@@ -10,6 +10,10 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  // 疑似要素を左右中央寄せ
+  display: grid;
+  place-items: center;
+
   @include mq(md) {
     background-position: top top;
   }
@@ -17,12 +21,10 @@
   &::after {
     content: url(../images/logo.svg);
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    transform-origin: center;
+    transform: scale(0.6);
 
     @include mq(md) {
+      position: absolute;
       top: 3%;
       left: 3%;
       transform: none;
@@ -32,12 +34,14 @@
 
 .concept {
   @extend .content-width;
+  @extend .mb-lg;
   margin-top: 50px;
 
   &__inner {
     @extend .flex;
     @extend .flex-reverse;
-    // gap: 4em;
+    justify-content: space-between;
+    gap: 2em;
   }
 
   &__img {
@@ -48,16 +52,210 @@
     }
 
     @include mq(md) {
-      width: 50%;
+      width: 56%;
     }
   }
   &__texts {
+    width: 100%;
+
+    @include mq(md) {
+      width: 40%;
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-end;
+    }
   }
   &__sub-title {
+    @extend .font-lr;
+    color: $c-darkgreen;
+    line-height: 1.4;
+
+    & > span {
+      display: block;
+    }
   }
 
   &__title {
+    @extend .font-lg;
+    @extend .mb-sm;
+    color: $c-darkgreen;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
   }
+}
+
+.menu {
+  @extend .mb-lg;
+  margin-top: 50px;
+
+  @include mq(md) {
+    width: 90%;
+    margin: 50px auto 0 auto;
+    max-width: $contentMaxWidth;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3em;
+
+    @include mq(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__img {
+    @extend .content-width-max;
+    @extend .mb-sm;
+
+    & > img {
+      width: 100%;
+    }
+  }
+
+  &__texts {
+    @extend .content-width;
+
+    @include mq(md) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @extend .font-md;
+    @extend .mb-sm;
+    @extend .title-letter;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 200;
+  }
+}
+
+.separate {
+  margin-top: 50px;
+  width: 100%;
+
+  & > img {
+    width: 100%;
+  }
+}
+
+.shop {
+  @extend .pb-lg;
+  background-color: $c-white;
+  padding-top: 50px;
+
+  &__inner {
+    @extend .content-width;
+    @extend .flex;
+    gap: 1em;
+
+    @include mq(md) {
+      gap: 4em;
+    }
+  }
+
+  &__img {
+    @include mq(md) {
+      width: 47%;
+    }
+  }
+
+  &__texts {
+    font-family: "Noto Sans JP", sans-serif;
+    @include mq(md) {
+      width: 40%;
+    }
+  }
+
+  &__title {
+    @extend .font-md;
+    @extend .mb-sm;
+    @extend .title-letter;
+    font-weight: 200;
+  }
+
   &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    & p span {
+      display: block;
+    }
+  }
+}
+
+.footer {
+  background-color: $c-beige;
+  color: $c-darkgreen;
+  margin-top: 50px;
+
+  &__inner {
+    @extend .content-width;
+    @extend .flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 70px 0;
+    gap: 4.6em;
+  }
+
+  &__l {
+    @extend .flex;
+    flex-wrap: nowrap;
+    gap: 2em;
+  }
+
+  &__logo {
+    width: 80%;
+    margin: 0 auto;
+
+    @include mq(md) {
+      width: 48%;
+
+      & > img {
+        width: 90%;
+      }
+    }
+  }
+
+  &__text {
+    font-family: "Noto Sans JP", sans-serif;
+    text-align: center;
+    line-height: 2;
+
+    @include mq(md) {
+      text-align: start;
+    }
+  }
+
+  &__ul {
+    padding-left: 0;
+  }
+
+  &__sns {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+
+    &-item {
+      font-size: 18px;
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__copyright {
+    @extend .font-sm;
+    @extend .title-letter;
+    background-color: $c-darkgreen;
+    color: $c-white;
+    font-weight: 200;
+    height: 60px;
+    display: grid;
+    place-items: center;
   }
 }
