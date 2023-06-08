@@ -1,14 +1,24 @@
 @use "../globals" as *;
 
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Oswald&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Oswald:wght@200;400&display=swap");
 body {
   font-family: "Oswald", "Noto Sans JP", sans-serif;
+  color: $c-black;
+  line-height: 1.75;
+  background-color: $c-beige;
 }
 
 img {
   max-width: 100%;
   vertical-align: bottom;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 // ------------------------
@@ -21,7 +31,7 @@ img {
 .mb-lg {
   margin-bottom: 80px !important;
 
-  @include mq(lg) {
+  @include mq(md) {
     margin-bottom: 150px !important;
   }
 }
@@ -33,7 +43,7 @@ img {
 .pb-lg {
   padding-bottom: 80px !important;
 
-  @include mq(lg) {
+  @include mq(md) {
     padding-bottom: 150px !important;
   }
 }
@@ -47,7 +57,6 @@ img {
 .content-width-max {
   width: 100%;
   margin: 0 auto;
-  // max-width: 100%;
 }
 
 .flex {
@@ -56,7 +65,7 @@ img {
 
   @include mq(md) {
     flex-direction: row; // 横並び
-    flex-wrap: wrap; // 横並びに入り切らない要素は折り返す
+    // flex-wrap: wrap; // 横並びに入り切らない要素は折り返す
   }
 }
 
@@ -72,44 +81,51 @@ img {
 .font-sm {
   font-size: 14px;
 
-  @include mq(lg) {
+  @include mq(md) {
     font-size: 16px;
   }
 }
 .font-md {
-  font-size: 17px;
-
-  @include mq(lg) {
-    font-size: 19px;
-  }
+  font-size: 26px;
 }
 .font-lr {
-  font-size: 17px;
+  font-size: 28px;
 
-  @include mq(lg) {
-    font-size: 23px;
+  @include mq(md) {
+    font-size: 32px;
   }
 }
 .font-lg {
-  font-size: 25px;
+  font-size: 64px;
 
-  @include mq(lg) {
+  @include mq(md) {
+    font-size: 74px;
+  }
+}
+
+.font-title {
+  font-size: 24px;
+
+  @include mq(md) {
     font-size: 36px;
   }
+}
+
+.title-letter {
+  letter-spacing: 0.05em;
 }
 
 // ------------------------
 // Title
 // ------------------------
 .main-title {
-  @extend .font-lg;
-  font-weight: 100;
+  @extend .font-title;
+  font-weight: 200;
   position: relative;
   display: block;
-  // margin-bottom: 1em;
-  // margin: 0 auto;
   text-align: center;
-  @extend .mb-lg;
+  margin-bottom: 100px;
+  letter-spacing: 0.05em;
 
   &::before {
     content: "";
